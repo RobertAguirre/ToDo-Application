@@ -1,2 +1,26 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div class="jumbotron">
+  <div class="container">
+    <h1>Welcome to BlocOff</h1>
+    <h3>The self-destructing ToDo list to keep you prioritized!</h3>
+    <br>
+      <p><%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary btn-lg' %>
+        <strong> or </strong>
+        <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-success btn-lg' %>
+      </p>
+    </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <h2>Increase productivity.</h2>
+    <p>The Blocoff list helps you address the ToDo items that really matter. </p>
+  </div>
+  <div class="col-md-4">
+    <h2>Stay focused.</h2>
+    <p>Using a Blocoff list prioritizes items by days remaining to complete.</p>
+  </div>
+  <div class="col-md-4">
+    <h2>Get things done.</h2>
+    <p>Blocoff items self destruct if not completed in 7 days.</p>
+  </div>
+</div>
