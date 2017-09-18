@@ -3,28 +3,38 @@
   <head>
     <title>BlocOff</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <div class="container">
-      <ul class="nav nav-tabs">
-        <% if user_signed_in? %>
-        <li><p>Hello, <%= current_user.name %> | <%= link_to "Sign_out", destroy_user_session_path, :method => 'delete' %></p></li>
-        <% else %>
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Sign In", new_user_session_path %></li>
-        <li><%= link_to "Register", new_user_registration_path %></li>
-        <% end %>
-      </ul>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <% if user_signed_in? %>
+            <div class="list-inline" style="color: white;">
+              <li><%= link_to "Hello,#{@user.name}", todo_lists_path, class: "btn btn-success" %></li>
+              <li> <%= link_to "Signout", destroy_user_session_path, :method => 'delete', class: 'btn btn-danger navbar-btn' %> </li>
+            </div>
+          <% else %>
+            <li><%= link_to "Bloc", "https://bloc.io", target: "_blank" %></li>
+            <li class="active"><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Sign In", new_user_session_path %></li>
+            <li><%= link_to "Register", new_user_registration_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
 
+    <div align="center">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-
-      <%= yield %>
     </div>
+
+
+    <%= yield %>
 
   </body>
 </html>
