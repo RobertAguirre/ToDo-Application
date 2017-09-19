@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   root 'welcome#index'
-  resources :todo_lists
+  resources :todo_lists do
+    resources :todo_items
+  end
 
   # get 'users/show'
   # resources :users do

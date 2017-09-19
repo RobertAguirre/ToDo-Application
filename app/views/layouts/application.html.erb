@@ -15,7 +15,7 @@
         <ul class="nav navbar-nav">
           <% if user_signed_in? %>
             <div class="list-inline" style="color: white;">
-              <li><%= link_to "Hello,#{@user.name}", todo_lists_path, class: "btn btn-success" %></li>
+              <li><%= link_to "Hello, #{@user.name}", todo_lists_path, class: "btn btn-success" %></li>
               <li> <%= link_to "Signout", destroy_user_session_path, :method => 'delete', class: 'btn btn-danger navbar-btn' %> </li>
             </div>
           <% else %>

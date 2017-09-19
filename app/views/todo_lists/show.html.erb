@@ -1,24 +1,20 @@
 <div class="container-fluid">
+  <div class="container text-center">
+    <h1>Your Blocoff List</h1>
+      <hr width="50%">
+    <h4><%= @todo_list.title %></h4>
+    <h5><%= @todo_list.description %></h5>
+  </div>
 
-<p id="notice"><%= notice %></p>
+  <br>
 
-<p>
-  <strong>Title:</strong>
-  <%= @todo_list.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @todo_list.description %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @user.name %>
-  <!-- <%= @todo_list.user %> -->
-</p>
-
-<%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
-<%= link_to 'Back', todo_lists_path %>
+  <div class="container-fluid" align="center">
+    <%= render @todo_list.todo_items %>
+    <div class="form">
+      <%= render "todo_items/form" %>
+    </div>
+    <%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
+    <%= link_to 'Back', todo_lists_path %>
+  </div>
 
 </div>
