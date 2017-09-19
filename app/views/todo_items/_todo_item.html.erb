@@ -1,6 +1,8 @@
 <div>
-<div class="row">
-  <%= todo_item.content %> |
-  <%= link_to "Delete", todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: { confirm: "Are you sure?" } %>
-</div>
+  <div class="row">
+    <%= todo_item.content %> |
+    <!-- distance_of_time_in_words(from_time, to_time = 0, options = {}) -->
+    <%= distance_of_time_in_words_to_now(todo_item.created_at + 7.days) %> left to complete.
+    <%= link_to "", todo_list_todo_item_path(@todo_list, todo_item.id), class: 'glyphicon glyphicon-trash', method: :delete, data: { confirm: "Are you sure?" } %>
+  </div>
 </div>
