@@ -37,6 +37,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 # Keep credentials private with Figaro
 gem 'figaro'
+# Seed database with Fake data
+gem 'faker', '~> 1.8', '>= 1.8.4'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
