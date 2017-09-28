@@ -9,10 +9,13 @@
   <br>
 
   <div class="container-fluid" align="center">
-    <%= render @todo_list.todo_items %>
-    <div class="form">
-      <%= render "todo_items/form" %>
+    <div id="todo-items-wrapper">
+      <%= render @todo_list.todo_items %>
+      <div class="form">
+        <%= render "todo_items/form" %>
+      </div>
     </div>
+
     <%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
     <%= link_to 'Back', todo_lists_path %>
   </div>

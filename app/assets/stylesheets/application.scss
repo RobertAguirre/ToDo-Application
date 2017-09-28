@@ -26,3 +26,54 @@
   background-repeat: no-repeat;
   overflow: hidden;
 }
+
+// $white_opaque: rgba(250, 250, 250, .3);
+$dark: #1F7972;
+
+#todo-items-wrapper {
+	.row {
+		width: 50%;
+		border-top: 1px solid rgba(250,250,250, .3);
+		border-bottom: 1px solid rgba(250,250,250, .3);
+		.complete {
+			width: 20%;
+			float: left;
+			text-align: center;
+			border-right: 1px solid rgba(250,250,250, .3);
+      margin: 0;
+			padding: 1em 0;
+		}
+		.todo-item {
+			width: 30%;
+			float: left;
+			margin: 0;
+			padding: 1em;
+			font-weight: 100;
+      font-size: 20px;
+
+		}
+    .days-remaining {
+      width: 30%;
+      float: left;
+      margin: 0;
+      padding: 1em;
+      font-weight: 100;
+      font-size: 20px,
+    }
+		.trash {
+			width: 20%;
+			float: left;
+			text-align: center;
+			border-left: 1px solid rgba(250,250,250, .3);
+			padding: 1em 0;
+      margin: 0;
+		}
+		i {
+			color: white;
+			transition: all .4s ease-in-out;
+			&:hover {
+				color: $dark;
+			}
+		}
+	}
+}

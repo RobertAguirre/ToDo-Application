@@ -1,8 +1,29 @@
-<div>
-  <div class="row">
-    <%= todo_item.content %> |
-    <!-- distance_of_time_in_words(from_time, to_time = 0, options = {}) -->
-    <%= distance_of_time_in_words_to_now(todo_item.created_at + 7.days) %> left to complete.
-    <%= link_to "", todo_list_todo_item_path(@todo_list, todo_item.id), class: 'glyphicon glyphicon-trash', method: :delete, data: { confirm: "Are you sure?" } %>
-  </div>
+<div class="row">
+  <% if todo_item.completed? %>
+    <div class="complete">
+      <%= link_to "", complete_todo_list_todo_item_path(@todo_list, todo_item.id), class: 'glyphicon glyphicon-ok', method: :patch %>
+    </div>
+    <div class="todo-item">
+      <p style="opacity: 0.4;"><strike><%= todo_item.content %></strike></p>
+    </div>
+    <div class="days-remaining">
+      <%= distance_of_time_in_words_to_now(todo_item.created_at + 7.days) %> left.
+    </div>
+    <div class="trash">
+      <%= link_to "", todo_list_todo_item_path(@todo_list, todo_item.id), class: 'glyphicon glyphicon-trash', method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
+  <% else %>
+    <div class="complete">
+      <%= link_to "", complete_todo_list_todo_item_path(@todo_list, todo_item.id), class: 'glyphicon glyphicon-ok', method: :patch %>
+    </div>
+    <div class="todo-item">
+      <p><%= todo_item.content %></p>
+    </div>
+    <div class="days-remaining">
+      <%= distance_of_time_in_words_to_now(todo_item.created_at + 7.days) %> left.
+    </div>
+    <div class="trash">
+      <%= link_to "", todo_list_todo_item_path(@todo_list, todo_item.id), class: 'glyphicon glyphicon-trash', method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
+    <% end %>
 </div>
