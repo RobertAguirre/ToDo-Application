@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" id=<%= todo_item.id %> >
   <% if todo_item.completed? %>
     <div class="complete">
       <%= link_to "", complete_todo_list_todo_item_path(@todo_list, todo_item.id), class: 'glyphicon glyphicon-ok', method: :patch %>
@@ -10,7 +10,7 @@
       <%= distance_of_time_in_words_to_now(todo_item.created_at + 7.days) %> left.
     </div>
     <div class="trash">
-      <%= link_to "", todo_list_todo_item_path(@todo_list, todo_item.id), class: 'glyphicon glyphicon-trash', method: :delete, data: { confirm: "Are you sure?" } %>
+      <%= link_to "", todo_list_todo_item_path(@todo_list, todo_item.id), class: 'glyphicon glyphicon-trash', method: :delete, data: { confirm: "Are you sure?" }, remote: true %>
     </div>
   <% else %>
     <div class="complete">
@@ -23,7 +23,7 @@
       <%= distance_of_time_in_words_to_now(todo_item.created_at + 7.days) %> left.
     </div>
     <div class="trash">
-      <%= link_to "", todo_list_todo_item_path(@todo_list, todo_item.id), class: 'glyphicon glyphicon-trash', method: :delete, data: { confirm: "Are you sure?" } %>
+      <%= link_to "", todo_list_todo_item_path(@todo_list, todo_item.id), class: 'glyphicon glyphicon-trash', method: :delete, data: { confirm: "Are you sure?" }, remote: true %>
     </div>
     <% end %>
 </div>

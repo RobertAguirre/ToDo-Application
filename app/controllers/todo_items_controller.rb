@@ -16,7 +16,11 @@ class TodoItemsController < ApplicationController
     else
       flash[:alert] = "Error unable to delete, please try again."
     end
-      redirect_to @todo_list
+      # redirect_to @todo_list
+      respond_to do |format|
+        format.html { redirect_to @todo_list }
+        format.js
+      end
   end
 
   def complete
